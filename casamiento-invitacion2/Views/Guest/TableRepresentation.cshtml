@@ -1,0 +1,35 @@
+﻿@model casamiento_invitacion2.ViewModel.GuestTableViewModel
+@{
+    ViewBag.Title = "Table";
+}
+
+@if(Model.Guests != null)
+{
+    <table class="table table-striped">
+        <thead class="table-primary">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>E-mail</th>
+                <th>N° telefono</th>
+                <th>Fecha de alta</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var g in Model.Guests)
+            {
+                <tr>
+                    <th>@g.Id</th>
+                    <td>@g.Name</td>
+                    <td>@g.Email</td>
+                    <td>@g.PhoneNumber</td>
+                    <td>@g.DateSigned</td>
+                </tr>
+            }
+        </tbody>
+    </table>   
+}
+else
+{
+   <h1>No hay invitados para mostrar</h1>
+}

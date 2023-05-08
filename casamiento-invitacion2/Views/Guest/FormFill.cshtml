@@ -1,0 +1,21 @@
+﻿@model casamiento_invitacion2.ViewModel.GuestViewModel
+@{
+    ViewBag.Title = "Formulario";
+}
+
+@using(Html.BeginForm("FormResult","Guest",FormMethod.Post))
+{
+    @Html.LabelFor(m => m.Name, new { @class="form-label" })  
+    @Html.ValidationMessageFor(m => m.Name, " * requerido", new { @class="text-danger small" })
+    @Html.TextBoxFor(m => m.Name, new { @class="form-control" })
+
+    @Html.LabelFor(m => m.Email, new { @class="form-label" })
+    @Html.TextBoxFor(m => m.Email, new { @class="form-control" })
+
+    @Html.LabelFor(m => m.PhoneNumber, new { @class="form-label" })
+    @Html.TextBoxFor(m => m.PhoneNumber, new { @type="number", @class="form-control" })
+
+    <input type="hidden" value=@DateTime.Now name="DateSigned"/>
+
+    <input type="submit" value="Enviar" class="btn btn-primary"/>
+}
